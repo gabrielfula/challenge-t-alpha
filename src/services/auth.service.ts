@@ -7,9 +7,7 @@ export class AuthService {
       const response = await authInstance({
         method: "POST",
         url: "auth/login",
-        data: {
-          taxNumber, password
-        }
+        data: { taxNumber, password }
       })
 
       return response.data;
