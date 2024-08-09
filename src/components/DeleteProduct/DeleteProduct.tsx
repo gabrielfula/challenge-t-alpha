@@ -9,6 +9,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import useDeleteProduct from "@/hooks/useDeleteProduct";
+import { toast } from "../ui/use-toast";
 
 interface IDeleteProduct {
   name: string;
@@ -17,8 +19,25 @@ interface IDeleteProduct {
 
 export default function DeleteProduct({ name, id }: IDeleteProduct) {
 
-  const handleDelete = (id: number) => {
-    
+  const { mutateAsync } = useDeleteProduct()
+
+  const handleDelete = async (id: number) => {
+
+    try {
+      await mutateAsync(id);
+
+      toast({
+        title: "Excluído",
+        variant: "default",
+        description: "Produto excluído com sucesso",
+      });
+    } catch (ex: any) {
+      toast({
+        title: "Não foi possível criar o produto",
+        variant: "destructive",
+        description: `${ex.message || "Erro desconhecido"}!`,
+      });
+    }
   }
 
   return (
