@@ -26,8 +26,8 @@ export default function ListProducts({ id, name, description, price, stock }: IP
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <EditProduct />
-            <DeleteProduct name={name} id={id}/>
+            <EditProduct id={id} />
+            <DeleteProduct name={name} id={id} />
             <DetailsProduct id={id} />
           </DropdownMenuContent>
         </DropdownMenu>

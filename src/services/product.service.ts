@@ -1,5 +1,6 @@
 import { productFormData } from "@/schemas/Products/products.schema";
 import { authInstance } from "./axios";
+import { updateProductFormData } from "@/schemas/Products/update-product.schema";
 
 export class ProductService {
   static async list() {
@@ -47,6 +48,20 @@ export class ProductService {
       const response = await authInstance({
         method: "DELETE",
         url: `products/delete-product/${id}`,
+      })
+
+      return response.data;
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async update(id: number, data: updateProductFormData) {
+    try {
+      const response = await authInstance({
+        method: "PATCH",
+        url: `products/update-product/${id}`,
+        data,
       })
 
       return response.data;
