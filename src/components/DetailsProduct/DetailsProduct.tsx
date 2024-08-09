@@ -1,11 +1,16 @@
+import { Link } from 'react-router-dom'
 import { DropdownMenuItem } from '../ui/dropdown-menu'
 
-export default function DetailsProduct() {
+export interface IDetailsProduct {
+  id: number;
+}
+
+export default function DetailsProduct({ id }: IDetailsProduct) {
   return (
     <>
-      <div>
+      <Link to={`/admin/produtos/${id}`}>
         <DropdownMenuItem>Detalhes</DropdownMenuItem>
-      </div>
+      </Link>
     </>
   )
 }

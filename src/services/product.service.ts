@@ -15,6 +15,19 @@ export class ProductService {
     }
   }
 
+  static async getById(id: number) {
+    try {
+      const response = await authInstance({
+        method: "GET",
+        url: `products/get-one-product/${id}`,
+      })
+
+      return response.data;
+    } catch (error) {
+      throw error
+    }
+  }
+
   static async create(data: productFormData) {
     try {
       const response = await authInstance({

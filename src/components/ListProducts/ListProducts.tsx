@@ -28,7 +28,7 @@ export default function ListProducts({ id, name, description, price, stock }: IP
           <DropdownMenuContent align="end">
             <EditProduct />
             <DeleteProduct name={name} id={id}/>
-            <DetailsProduct />
+            <DetailsProduct id={id} />
           </DropdownMenuContent>
         </DropdownMenu>
         </TableCell>

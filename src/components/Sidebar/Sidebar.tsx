@@ -14,7 +14,7 @@ export default function Sidebar() {
         <ul className="flex flex-col justify-start items-start gap-6">
           <li>
             <Link
-              to="#"
+              to="/admin/produtos"
               className="flex text-sm gap-2 rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground transition-all"           
             >
               <PackageIcon className="h-5 w-5" />
