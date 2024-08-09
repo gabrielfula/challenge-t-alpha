@@ -1,23 +1,34 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
 import { useAuth } from "@/context/useAuth";
-import { useForm } from "react-hook-form";
 import { AuthService } from "@/services/auth.service";
 import { Link, useNavigate } from "react-router-dom";
-import { useToast } from "@/components/ui/use-toast"
+
+
+import TextInput from "@/components/InputText/InputText";
+import { useToast } from "@/components/ui/use-toast";
+
+
+import { loginFormData, loginFormSchema } from "@/schemas/Login/login.schema";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form";
+
 
 export default function LoginPage() {
+  const { login } = useAuth();
 
   const { toast } = useToast()
 
-  const { login } = useAuth();
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const { 
+    handleSubmit,
+    control,
+  } = useForm<loginFormData>({
+    resolver: zodResolver(loginFormSchema)
+  });
 
-  const { handleSubmit, register } = useForm();
-
-  const handleLogin = async (data: any) => {
+  const handleLogin = async (data: loginFormData) => {
     try {
       const response = await AuthService.login(data.taxNumber, data.password);
 
@@ -29,8 +40,7 @@ export default function LoginPage() {
         description: `${response.message}!`
       });
 
-      navigate("/admin/home")
-      
+      navigate("/admin/produtos");
     } catch (error: any) {
       toast({
         title: "Não foi possível efetuar o login",
@@ -43,25 +53,21 @@ export default function LoginPage() {
   return (
     <div className="w-1/3">
       <form className="space-y-4" onSubmit={handleSubmit(handleLogin)}>
-          <div className="space-y-2">
-            <Label>CPF ou CNPJ</Label>
-            <Input type="text" placeholder="Ex: 9999999999" required {...register("taxNumber")} />
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="password">Password</Label>
-            </div>
-            <Input id="password" type="password" placeholder="Ex: ******" required {...register("password")}  />
-          </div>
-          <p className="text-center text-sm text-muted-foreground">
+        <div className="space-y-2">
+          <TextInput name="taxNumber" type="text" label={"CPF ou CNPJ"} control={control} placeholder="Ex: 999.999.999-99" />
+        </div>
+        <div className="space-y-2">
+          <TextInput name="password" type="password" label={"Senha"} control={control} placeholder="Ex: ******"  />
+        </div>
+        <p className="text-center text-sm text-muted-foreground">
           Não possui uma conta ainda? 
-          <Link to={'/cadastro'} className="font-medium underline underline-offset-4      hover:text-primary pl-1">
-          Cadastrar-se
+          <Link to={'/cadastro'} className="font-medium underline underline-offset-4 hover:text-primary pl-1">
+            Cadastrar-se
           </Link>
         </p>
-          <Button type="submit" className="w-full">
-            Login
-          </Button>
+        <Button type="submit" className="w-full">
+          Login
+        </Button>
       </form>
     </div>
   )
