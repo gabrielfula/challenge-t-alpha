@@ -3,7 +3,10 @@ import { TableBody, TableCell, TableRow } from "../ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { MoveHorizontalIcon } from "lucide-react";
-import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
+
+import DeleteProduct from "../DeleteProduct/DeleteProduct";
+import EditProduct from "../EditProduct/EditProduct";
+import DetailsProduct from "../DetailsProduct/DetailsProduct";
 
 export default function ListProducts({ id, name, description, price, stock }: IProducts) {
   
@@ -23,8 +26,9 @@ export default function ListProducts({ id, name, description, price, stock }: IP
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>Edit</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+            <EditProduct />
+            <DeleteProduct name={name} id={id}/>
+            <DetailsProduct />
           </DropdownMenuContent>
         </DropdownMenu>
         </TableCell>
