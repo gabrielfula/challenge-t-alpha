@@ -1,3 +1,4 @@
+import { productFormData } from "@/schemas/Products/products.schema";
 import { authInstance } from "./axios";
 
 export class ProductService {
@@ -14,7 +15,7 @@ export class ProductService {
     }
   }
 
-  static async create(data: any) {
+  static async create(data: productFormData) {
     try {
       const response = await authInstance({
         method: "POST",
