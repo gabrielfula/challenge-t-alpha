@@ -2,11 +2,11 @@ import axios from "axios";
 import { parseCookies } from "nookies";
 
 export const authInstance = axios.create({
-  baseURL: 'https://interview.t-alpha.com.br/api/',
+  baseURL: import.meta.env.VITE_API_TALPHA,
 })
 
 export const instance = axios.create({
-  baseURL: 'https://interview.t-alpha.com.br/api/',
+  baseURL: import.meta.env.VITE_API_TALPHA,
 })
 
 authInstance.interceptors.request.use(
