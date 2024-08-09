@@ -35,7 +35,7 @@ export default function DeleteProduct({ name, id }: IDeleteProduct) {
       toast({
         title: "Não foi possível criar o produto",
         variant: "destructive",
-        description: `${ex.message || "Erro desconhecido"}!`,
+        description: `${ex.response.data.message || "Erro desconhecido"}!`,
       });
     }
   }

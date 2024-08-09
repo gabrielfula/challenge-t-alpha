@@ -31,7 +31,7 @@ export default function DetailsPage() {
           <div>
             <Button className="space-x-2">
               <ArrowLeft color="#fff" strokeWidth={2} size={22} />
-              <Link to="/admin/produtos" className="">Voltar</Link>
+              <Link to="/produtos" className="">Voltar</Link>
             </Button>
           </div>
         </div> 

@@ -37,7 +37,7 @@ export default function EditProduct({ id }: IEditProduct) {
       toast({
         title: "Não foi possível atualizar o produto",
         variant: "destructive",
-        description: `${ex.message || "Erro desconhecido"}!`,
+        description: `${ex.response.data.message || "Erro desconhecido"}!`,
       });
     }
   };

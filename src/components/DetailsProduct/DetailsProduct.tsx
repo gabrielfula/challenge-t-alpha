@@ -12,7 +12,7 @@ export default function DetailsProduct({ id }: IDetailsProduct) {
   return (
     <>
       <button className='w-full'>
-        <DropdownMenuItem onClick={() => navigate(`/admin/produtos/${id}`)}>Detalhes</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate(`/produtos/${id}`)}>Detalhes</DropdownMenuItem>
       </button>
     </>
   )

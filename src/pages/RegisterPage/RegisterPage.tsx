@@ -35,7 +35,7 @@ export default function RegisterPage() {
       toast({
         title: "Não foi possível concluir o cadastro",
         variant: "destructive",
-        description: `${ex.message || "Erro desconhecido"}!`,
+        description: `${ex.response.data.message || "Erro desconhecido"}!`,
       });
     }
   }

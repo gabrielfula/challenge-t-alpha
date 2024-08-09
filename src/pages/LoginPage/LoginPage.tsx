@@ -40,7 +40,7 @@ export default function LoginPage() {
         description: `${response.message}!`
       });
 
-      navigate("/admin/produtos");
+      navigate("/produtos");
     } catch (error: any) {
       toast({
         title: "Não foi possível efetuar o login",

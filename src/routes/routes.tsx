@@ -1,33 +1,33 @@
 import { Route, Routes } from "react-router-dom"
 
-import publicRoutes from "./public.route"
-import adminRoutes from "./admin.route"
-
 import ProtectedRoutes from "@/layouts/PrivateRoute/ProtectedRoute";
 import AdminLayout from "@/layouts/PrivateRoute/AdminLayout";
 import PublicRoutes from "@/layouts/PublicRoute/PublicRoutes";
+
+import LoginPage from "@/pages/LoginPage/LoginPage";
+import RegisterPage from "@/pages/RegisterPage/RegisterPage";
+import ErrorPage from "@/pages/ErrorPage";
+import ProductPage from "@/pages/ProductPage/ProductPage";
+import DetailsPage from "@/pages/DetailsPage/DetailsPage";
 
 
 const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<PublicRoutes />}>
-        {publicRoutes.map((route: any, index) => 
-          <Route path={route.path} key={index} element={<route.component />} />
-        )}
+      <Route path="*" element={<ErrorPage />} />
+
+      <Route element={<PublicRoutes />}>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/cadastro" element={<RegisterPage />} />
       </Route>
 
-      <Route 
-        path="/admin" 
-        element={
+      <Route element={
           <ProtectedRoutes>
             <AdminLayout />
-          </ProtectedRoutes>
-        }>
-        {adminRoutes.map((route: any, index) => 
-          <Route path={route.path} key={index} element={<route.component />} />
-        )}
+          </ProtectedRoutes>}>
+        <Route path="/produtos" element={<ProductPage />} />
+        <Route path="/produtos/:id" element={<DetailsPage />} />
       </Route>
     </Routes>
   );
