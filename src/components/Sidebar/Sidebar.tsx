@@ -8,7 +8,7 @@ export default function Sidebar() {
 
   return (
    <>
-     <aside className="bg-background shadow w-1/6">
+     <aside className="bg-background h-screen shadow w-1/6">
       <nav className="p-4 mt-10 flex flex-col items-center">
         <h3 className="mb-10 text-lg font-bold">Administração</h3>
         <ul className="flex flex-col justify-start items-start gap-6">
