@@ -4,13 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import useFetchProductById from "@/hooks/useFetchProductById";
 import { ArrowLeft } from "lucide-react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function DetailsPage() {
 
   const { id } = useParams();
 
   const { data: response, isLoading, error } = useFetchProductById(Number(id));
+
+  const navigate = useNavigate()
 
   if (isLoading) {
     return <Loading />
@@ -29,9 +31,9 @@ export default function DetailsPage() {
             <CardDescription>Detalhes específico de cada produto.</CardDescription>
           </CardHeader>
           <div>
-            <Button className="space-x-2">
+            <Button className="space-x-2" onClick={() => navigate("/produtos")}>
               <ArrowLeft color="#fff" strokeWidth={2} size={22} />
-              <Link to="/produtos" className="">Voltar</Link>
+              Voltar
             </Button>
           </div>
         </div> 

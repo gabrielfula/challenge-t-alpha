@@ -34,6 +34,6 @@
     @apply border-border font-text;
   }
   body {
-    @apply bg-background text-foreground w-full;
+    @apply bg-background text-foreground bg-zinc-50;
   }
 }

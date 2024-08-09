@@ -53,7 +53,7 @@ export default function CreateProduct() {
           <DialogTrigger>
             <Button className="space-x-2" onClick={() => setIsOpen(true)}>
               <Plus color="#fff" strokeWidth={2} size={22} />
-              <p>Criar produto</p>
+              Criar Produto
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-md">
