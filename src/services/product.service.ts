@@ -28,4 +28,17 @@ export class ProductService {
       throw error
     }
   }
+
+  static async delete(id: number) {
+    try {
+      const response = await authInstance({
+        method: "DELETE",
+        url: `products/delete-product/${id}`,
+      })
+
+      return response.data;
+    } catch (error) {
+      throw error
+    }
+  }
 }
