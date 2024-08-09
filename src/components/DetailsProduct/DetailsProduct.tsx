@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { DropdownMenuItem } from '../ui/dropdown-menu'
 
 export interface IDetailsProduct {
@@ -6,11 +6,14 @@ export interface IDetailsProduct {
 }
 
 export default function DetailsProduct({ id }: IDetailsProduct) {
+
+  const navigate = useNavigate();
+
   return (
     <>
-      <Link to={`/admin/produtos/${id}`}>
-        <DropdownMenuItem>Detalhes</DropdownMenuItem>
-      </Link>
+      <button className='w-full'>
+        <DropdownMenuItem onClick={() => navigate(`/admin/produtos/${id}`)}>Detalhes</DropdownMenuItem>
+      </button>
     </>
   )
 }
