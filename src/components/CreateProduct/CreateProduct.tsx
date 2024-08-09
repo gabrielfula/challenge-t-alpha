@@ -74,7 +74,7 @@ export default function CreateProduct() {
                 <TextInput name="price" label="Preço" control={control} placeholder="Ex: R$10,00" />
               </div>
               <div>
-                <TextInput name="stock" label="Quantidade" type="number" control={control} placeholder="Ex: 3" />
+                <TextInput name="stock" label="Quantidade" control={control} placeholder="Ex: 3" />
               </div>
               <Button type="submit" size="sm" className="px-3">Criar</Button>
             </form>
