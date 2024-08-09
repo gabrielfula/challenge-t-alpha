@@ -51,7 +51,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="w-1/3">
+    <div>
       <form className="space-y-4" onSubmit={handleSubmit(handleLogin)}>
         <div className="space-y-2">
           <TextInput name="taxNumber" type="text" label={"CPF ou CNPJ"} control={control} placeholder="Ex: 999.999.999-99" />

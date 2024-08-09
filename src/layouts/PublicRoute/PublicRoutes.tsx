@@ -6,8 +6,12 @@ export default function PublicRoutes() {
   return (
     <>
       <div className='flex flex-col gap-10 justify-center h-screen items-center'>
-        <img src={Logo} alt="Logo" />
-        <Outlet />
+        <div>
+          <img src={Logo} alt="Logo" />
+        </div>
+        <div className='w-1/3'>
+          <Outlet />
+        </div>
       </div>
     </>
   )
