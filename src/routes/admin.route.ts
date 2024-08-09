@@ -1,7 +1,7 @@
-import HomePage from "@/pages/HomePage/HomePage";
+import ProductPage from "@/pages/ProductPage/ProductPage";
 
 const routes = [
-  { path: "produtos", component: HomePage }
+  { path: "produtos", component: ProductPage }
 ]
 
 export default routes;
